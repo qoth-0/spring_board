@@ -46,6 +46,7 @@
         <tr>
             <th>id</th>
             <th>title</th>
+            <th>작성자 email</th>
             <th>상세보기</th>
         </tr>
         </thead>
@@ -53,6 +54,7 @@
         <tr th:each = "post : ${postList}"> <!--Controller의 addAttribute의 변수명-->
             <td th:text="${post.id}"></td>
             <td th:text="${post.title}"></td>
+            <td th:text="${post.author_email}"></td>
             <td><a th:href="@{/post/detail/{id}(id=${post.id})}">상세보기</a></td> <!-- @는 th의 링크 url표현식 -->
         </tr>
         </tbody>

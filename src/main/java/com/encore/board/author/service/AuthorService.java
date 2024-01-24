@@ -7,21 +7,26 @@ import com.encore.board.author.dto.AuthorUpdateReqDto;
 import com.encore.board.author.dto.AuthorListResDto;
 import com.encore.board.author.dto.AuthorSaveReqDto;
 import com.encore.board.author.repository.AuthorRepository;
+import com.encore.board.post.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class AuthorService {
     private final AuthorRepository authorRepository;
+    private final PostRepository postRepository;
 
     @Autowired
-    public AuthorService(AuthorRepository authorRepository) {
+    public AuthorService(AuthorRepository authorRepository, PostRepository postRepository) {
         this.authorRepository = authorRepository;
+        this.postRepository = postRepository;
     }
 
     public void authorCreate(AuthorSaveReqDto authorSaveReqDto) throws DataIntegrityViolationException {
@@ -37,12 +42,25 @@ public class AuthorService {
 //                                    authorSaveReqDto.getPassword(),
 //                                    role);
 
+
 //        빌더 패턴
         Author author = Author.builder()
                 .email(authorSaveReqDto.getEmail())
                 .name(authorSaveReqDto.getName())
                 .password(authorSaveReqDto.getPassword())
                 .build();
+
+////        cascade.persist 테스트
+////        부모테이블을 통해 자식테이블에 객체를 동시에 생성
+////        List<Post> posts = new ArrayList<>();
+////        Post post =
+//        Post.builder()
+//                .title("안녕하세요. " + author.getName() + "입니다.")
+//                .contents("반갑습니다. cascade 테스트 중입니다.")
+//                .author(author)
+//                .build();
+////        posts.add(post);
+////        author.setPosts(posts);
         authorRepository.save(author); // save - 내장 메서드
     }
 
@@ -74,7 +92,13 @@ public class AuthorService {
             role = "관리자";
         }
         AuthorDetailResDto authorDetailResDto = new AuthorDetailResDto(
-                author.getId(), author.getName(), author.getEmail(), author.getPassword(), author.getCreatedTime(), role
+                author.getId(),
+                author.getName(),
+                author.getEmail(),
+                author.getPassword(),
+                author.getCreatedTime(),
+                role,
+                author.getPosts().size()
         );
         return authorDetailResDto;
     }
@@ -82,7 +106,9 @@ public class AuthorService {
     public void authorUpdate(Long id, AuthorUpdateReqDto authorUpdateReqDto) {
         Author author = this.findById(id);
         author.authorUpdate(authorUpdateReqDto.getName(), authorUpdateReqDto.getPassword());
-        authorRepository.save(author);
+//        명시적으로 save를 하지 않더라도 jpa의 영속성 컨텍스트를 통해
+//        객체의 변경이 감지(dirty checking)되면 트랜잭션이 완료되는 시점에 save 동작
+//        authorRepository.save(author);
     }
 
     public void authorDelete(Long id) {

@@ -1,15 +1,14 @@
 package com.encore.board.author.domain;
 
 import com.encore.board.author.dto.AuthorSaveReqDto;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import com.encore.board.post.domain.Post;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter // 회원목록 조회 - service단에서 getID, Name, Email에 사용
 @Entity
@@ -31,6 +30,13 @@ public class Author {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+
+//    author를 조회할 때 post객체가 필요할 시 선언
+//    mappedBy에 연관관계의 주인을 명시하고, fk를 관리하는 변수명을 명시
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @Setter // casecade.persist 테스트를 위한 setter
+    private List<Post> posts;
+
     @CreationTimestamp
     @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP") // current_timestamp 설정
     private LocalDateTime createdTime;
@@ -42,5 +48,4 @@ public class Author {
         this.name = name;
         this.password = password;
     }
-
 }

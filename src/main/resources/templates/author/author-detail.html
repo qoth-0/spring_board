@@ -64,6 +64,10 @@
             <td>가입시간</td>
             <td th:text="${author.createdTime}"></td>
         </tr>
+        <tr>
+            <td>작성글 수</td>
+            <td th:text="${author.postCount}"></td>
+        </tr>
     </table>
         <button class="btn btn-primary edit-btn" onclick="edit()">수정</button>
         <a th:href="@{/author/delete/{id}(id=${author.id})}" class="btn btn-primary edit-btn">삭제</a>

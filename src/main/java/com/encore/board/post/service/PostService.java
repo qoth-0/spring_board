@@ -1,5 +1,7 @@
 package com.encore.board.post.service;
 
+import com.encore.board.author.domain.Author;
+import com.encore.board.author.repository.AuthorRepository;
 import com.encore.board.post.domain.Post;
 import com.encore.board.post.dto.PostDetailResDto;
 import com.encore.board.post.dto.PostListResDto;
@@ -16,24 +18,31 @@ import java.util.List;
 @Service
 public class PostService {
     private final PostRepository postRepository;
+    private final AuthorRepository authorRepository;
 
     @Autowired
-    public PostService(PostRepository postRepository) {
+    public PostService(PostRepository postRepository, AuthorRepository authorRepository) {
         this.postRepository = postRepository;
+        this.authorRepository = authorRepository;
     }
 
     public void postCreate(PostSaveReqDto postSaveReqDto) {
-        Post post = new Post(postSaveReqDto.getTitle(), postSaveReqDto.getContents());
+        Post post = Post.builder()
+                .title(postSaveReqDto.getTitle())
+                .contents(postSaveReqDto.getContents())
+                .author(authorRepository.findByEmail(postSaveReqDto.getEmail()).orElse(null))
+                .build();
         postRepository.save(post);
-
     }
     public List<PostListResDto> postList() {
-        List<Post> posts = postRepository.findAll();
+        List<Post> posts = postRepository.findAllByOrderByCreatedTimeDesc();
         List<PostListResDto> postListResDtos = new ArrayList<>();
         for(Post post : posts) {
             PostListResDto postListResDto = new PostListResDto();
             postListResDto.setId(post.getId());
             postListResDto.setTitle(post.getTitle());
+//            게시글의 작성자가 null이면 익명유저로 set, 존재하면 해당 email을 set
+            postListResDto.setAuthor_email(post.getAuthor() == null ? "익명유저" : post.getAuthor().getEmail());
             postListResDtos.add(postListResDto);
         }
         return postListResDtos;
