@@ -108,7 +108,7 @@ public class AuthorService {
         author.authorUpdate(authorUpdateReqDto.getName(), authorUpdateReqDto.getPassword());
 //        명시적으로 save를 하지 않더라도 jpa의 영속성 컨텍스트를 통해
 //        객체의 변경이 감지(dirty checking)되면 트랜잭션이 완료되는 시점에 save 동작
-//        authorRepository.save(author);
+        authorRepository.save(author);
     }
 
     public void authorDelete(Long id) {

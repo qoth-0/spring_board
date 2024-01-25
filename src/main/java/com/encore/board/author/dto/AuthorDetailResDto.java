@@ -3,11 +3,13 @@ package com.encore.board.author.dto;
 import com.encore.board.author.domain.Role;
 import com.encore.board.post.domain.Post;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
 public class AuthorDetailResDto {
     private Long id;
     private String name;
