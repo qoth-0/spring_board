@@ -16,6 +16,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -29,7 +30,9 @@ public class AuthorService {
         this.postRepository = postRepository;
     }
 
-    public void authorCreate(AuthorSaveReqDto authorSaveReqDto) throws DataIntegrityViolationException {
+    public void authorCreate(AuthorSaveReqDto authorSaveReqDto) throws IllegalArgumentException{
+        if(authorRepository.findByEmail(authorSaveReqDto.getEmail()).isPresent())
+            throw new IllegalArgumentException("중복된 이메일입니다.");
         Role role = null;
         if(authorSaveReqDto.getRole() == null || authorSaveReqDto.getRole().equals("user")) {
             role = Role.USER;

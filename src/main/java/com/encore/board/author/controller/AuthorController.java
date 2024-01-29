@@ -26,14 +26,19 @@ public class AuthorController {
         return "author/author-create";
     }
     @PostMapping("/create")
-    public String authorCreate(AuthorSaveReqDto authorSaveReqDto) {
-        authorService.authorCreate(authorSaveReqDto);
-        return "redirect:/author/list";
+    public String authorCreate(Model model,AuthorSaveReqDto authorSaveReqDto) {
+        try {
+            authorService.authorCreate(authorSaveReqDto);
+            return "redirect:/author/list";
+        }catch (IllegalArgumentException e) {
+            model.addAttribute("errorMessage", e.getMessage());
+            return "/author/author-create";
+        }
     }
 
 //    회원 목록 조회
     @GetMapping("/list")
-    public String authorList(Model model) {
+    public String authorList(Model model ) {
         model.addAttribute("authorList", authorService.authorList());
         return "/author/author-list";
     }

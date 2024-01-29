@@ -1,10 +1,16 @@
 package com.encore.board.post.controller;
 
 
+import com.encore.board.post.domain.Post;
+import com.encore.board.post.dto.PostListResDto;
 import com.encore.board.post.dto.PostSaveReqDto;
 import com.encore.board.post.dto.PostUpdateReqDto;
 import com.encore.board.post.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -27,17 +33,40 @@ public class PostController {
         return "post/post-create";
     }
     @PostMapping("/create")
-    public String postCreate(PostSaveReqDto postSaveReqDto) {
-        postService.postCreate(postSaveReqDto);
-        return "redirect:/post/list";
+    public String postCreate(Model model, PostSaveReqDto postSaveReqDto) {
+        try {
+            postService.postCreate(postSaveReqDto);
+            return "redirect:/post/list";
+        }catch (IllegalArgumentException e) {
+            model.addAttribute("errorMessage", e.getMessage());
+            return "/post/post-create";
+        }
     }
 
 
     //    게시물 목록 조회
+//    @GetMapping("/list")
+//    public String postList(Model model) {
+//        model.addAttribute("postList", postService.postList());
+//        return "/post/post-list";
+//    }
+
+////    Page json형태 데이터 확인
+//    @GetMapping("/json/list")
+//    @ResponseBody
+////    localhost:8080/post/json/list?size=xx&page=xx&sort=xx,desc
+//    public Page<PostListResDto> postList(Pageable pageable) {
+//        Page<PostListResDto> postListResDtos = postService.findAllJson(pageable);
+//        return postListResDtos;
+//    }
+
+//    페이지네이션 처리
     @GetMapping("/list")
-    public String postList(Model model) {
-        model.addAttribute("postList", postService.postList());
-        return "/post/post-list";
+//    localhost:8080/post/json/list?size=xx&page=xx&sort=xx,desc
+    public String postList(Model model, @PageableDefault(size=5, sort = "createdTime",direction = Sort.Direction.DESC) Pageable pageable) {
+        Page<PostListResDto> postListResDtos = postService.findByAppointment(pageable);
+        model.addAttribute("postList", postListResDtos);
+        return "post/post-list";
     }
 
     //    게시물 상세 조회

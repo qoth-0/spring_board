@@ -9,10 +9,15 @@ import com.encore.board.post.dto.PostSaveReqDto;
 import com.encore.board.post.dto.PostUpdateReqDto;
 import com.encore.board.post.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import javax.swing.text.DateFormatter;
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,29 +33,57 @@ public class PostService {
         this.authorRepository = authorRepository;
     }
 
-    public void postCreate(PostSaveReqDto postSaveReqDto) {
+    public void postCreate(PostSaveReqDto postSaveReqDto) throws IllegalArgumentException{
         Author author = authorRepository.findByEmail(postSaveReqDto.getEmail()).orElse(null);
+//        예약여부(o), 시간설정(o)일때
+        LocalDateTime appointTime = null;
+        String appointment = null; // Y가 아니면 다 null로 들어감
+        if(postSaveReqDto.getAppointment().equals("Y") && !postSaveReqDto.getAppointmentTime().isEmpty()) {
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+//            예약시간을 dateTimeFormatter의 형식으로 맞춰줌
+            appointTime = LocalDateTime.parse(postSaveReqDto.getAppointmentTime(), dateTimeFormatter);
+            LocalDateTime now = LocalDateTime.now();
+            if(appointTime.isBefore(now)) {
+                throw new IllegalArgumentException("예약시간이 현재시간보다 빠릅니다.");
+            }
+            appointment = "Y";
+        }
         Post post = Post.builder()
                 .title(postSaveReqDto.getTitle())
                 .contents(postSaveReqDto.getContents())
                 .author(author)
+                .appointment(appointment)
+                .appointmentTime(appointTime)
                 .build();
 
-//        더티체킹 테스트
-        author.authorUpdate("dirty checking test", "1234");
         postRepository.save(post);
     }
-    public List<PostListResDto> postList() {
-        List<Post> posts = postRepository.findAllFetchJoin();
-        List<PostListResDto> postListResDtos = new ArrayList<>();
-        for(Post post : posts) {
-            PostListResDto postListResDto = new PostListResDto();
-            postListResDto.setId(post.getId());
-            postListResDto.setTitle(post.getTitle());
-//            게시글의 작성자가 null이면 익명유저로 set, 존재하면 해당 email을 set
-            postListResDto.setAuthor_email(post.getAuthor() == null ? "익명유저" : post.getAuthor().getEmail());
-            postListResDtos.add(postListResDto);
-        }
+//    public List<PostListResDto> postList() {
+//        List<Post> posts = postRepository.findAllFetchJoin();
+//        List<PostListResDto> postListResDtos = new ArrayList<>();
+//        for(Post post : posts) {
+//            PostListResDto postListResDto = new PostListResDto();
+//            postListResDto.setId(post.getId());
+//            postListResDto.setTitle(post.getTitle());
+////            게시글의 작성자가 null이면 익명유저로 set, 존재하면 해당 email을 set
+//            postListResDto.setAuthor_email(post.getAuthor() == null ? "익명유저" : post.getAuthor().getEmail());
+//            postListResDtos.add(postListResDto);
+//        }
+//        return postListResDtos;
+//    }
+
+////    모든 POST Paging처리 및 조회
+//    public Page<PostListResDto> findAllPaging(Pageable pageable) {
+//        Page<Post> posts = postRepository.findAll(pageable);
+//        Page<PostListResDto> postListResDtos = posts.map(
+//                p -> new PostListResDto(p.getId(), p.getTitle(), p.getAuthor() == null ? "익명유저" : p.getAuthor().getEmail()));
+//        return postListResDtos;
+//    }
+
+    public Page<PostListResDto> findByAppointment(Pageable pageable) {
+        Page<Post> posts = postRepository.findByAppointment(null, pageable);
+        Page<PostListResDto> postListResDtos = posts.map(
+                p -> new PostListResDto(p.getId(), p.getTitle(), p.getAuthor() == null ? "익명유저" : p.getAuthor().getEmail()));
         return postListResDtos;
     }
 

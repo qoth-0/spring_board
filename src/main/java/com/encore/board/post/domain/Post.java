@@ -42,17 +42,18 @@ public class Post {
     @Column(columnDefinition = "TIMESTAMP ON UPDATE CURRENT_TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime updatedTime;
 
-    public Post(String title, String contents, Author author) {
-        this.title = title;
-        this.contents = contents;
-        this.author = author;
-//        author객체의  posts를 초기화시켜준 후
-//        this.author.getPosts().add(this);
-    }
+//    스케쥴러 추가
+    private String appointment;
+    private LocalDateTime appointmentTime;
 
     public void postUpdate(String title, String contents) {
         this.title = title;
         this.contents = contents;
+    }
+
+//    예약시간 지나면 null로 바꾸기 위해
+    public void AppointmentUpdate(String appointment) {
+        this.appointment = appointment;
     }
 
 }

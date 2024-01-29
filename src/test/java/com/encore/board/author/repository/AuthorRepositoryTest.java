@@ -29,6 +29,7 @@ public class AuthorRepositoryTest {
     @Test
     public void authorSaveTest() {
 //      데이터 저장 확인 : 객체 만들고 save -> db조회 -> 만든 객체와 비교
+//        give-when-then 패턴
 //        준비(prepare, given)
         Author author = Author.builder()
                 .email("Test5@a.com")

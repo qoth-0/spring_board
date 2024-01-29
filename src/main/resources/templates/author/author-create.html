@@ -47,9 +47,18 @@
                     <option value="admin">관리자</option>
                     <option value="user">일반사용자</option>
                 </select>
+                <div th:if="${errorMessage != null}"> <!-- 값이 있는 경우에만 -->
+                    <input type="hidden" id="error" th:value="${errorMessage}">
+                </div>
             </div>
             <button type="submit" class="btn btn-primary edit-btn">가입완료</button>
         </form>
     </div>
+    <script>
+        let errorMessage = document.getElementById("error").value;
+        if(errorMessage) {
+            alert(errorMessage);
+        }
+    </script>
 </body>
 </html>
