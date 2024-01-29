@@ -5,6 +5,7 @@ import com.encore.board.author.dto.AuthorDetailResDto;
 import com.encore.board.author.dto.AuthorUpdateReqDto;
 import com.encore.board.author.dto.AuthorSaveReqDto;
 import com.encore.board.author.service.AuthorService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/author")
+@Slf4j
 public class AuthorController {
     private final AuthorService authorService;
 
@@ -32,6 +34,7 @@ public class AuthorController {
             return "redirect:/author/list";
         }catch (IllegalArgumentException e) {
             model.addAttribute("errorMessage", e.getMessage());
+            log.error(e.getMessage()); // catch로 잡혀있으므로 에러가 자동으로 안뜸 - log로 출력해주기
             return "/author/author-create";
         }
     }
