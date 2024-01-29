@@ -289,3 +289,7 @@ Caused by: java.lang.IllegalArgumentException: error at ::0 can't find reference
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
 	... 36 common frames omitted
+2024-01-29 16:28:05 c.e.board.common.CommonException - Handler EntityNotFoundException : author not found
+2024-01-29 16:36:13 c.e.b.a.controller.TestController - controller exception message : author not found
+2024-01-29 16:36:34 c.e.b.a.controller.TestController - controller exception message : author not found
+2024-01-29 16:45:02 c.e.board.common.CommonException - Handler EntityNotFoundException : author not found
