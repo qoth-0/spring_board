@@ -1,4 +1,9 @@
 spring:
+#  임시계정 / 임시비밀번호 설정
+  security:
+    user:
+      name: user
+      password: 1234
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3306/board

@@ -15,6 +15,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -33,9 +35,10 @@ public class PostController {
         return "post/post-create";
     }
     @PostMapping("/create")
-    public String postCreate(Model model, PostSaveReqDto postSaveReqDto) {
+    public String postCreate(Model model, PostSaveReqDto postSaveReqDto, HttpSession session) {
         try {
-            postService.postCreate(postSaveReqDto);
+//            세션을 매개변수로 주입받아 getAttribute("email")로 email값 꺼낼 수 있음
+            postService.postCreate(postSaveReqDto, session.getAttribute("email").toString());
             return "redirect:/post/list";
         }catch (IllegalArgumentException e) {
             model.addAttribute("errorMessage", e.getMessage());

@@ -7,6 +7,7 @@ import com.encore.board.author.dto.AuthorSaveReqDto;
 import com.encore.board.author.service.AuthorService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +40,14 @@ public class AuthorController {
         }
     }
 
+//    로그인
+    @GetMapping("/login-page")
+    public String authorLogin() {
+        return "/author/login-page";
+    }
+
 //    회원 목록 조회
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/list")
     public String authorList(Model model ) {
         model.addAttribute("authorList", authorService.authorList());
@@ -53,12 +61,15 @@ public class AuthorController {
         return "/author/author-detail";
     }
 
+
 //    회원 수정
     @PostMapping("/update/{id}")
     public String authorUpdate(@PathVariable Long id, AuthorUpdateReqDto authorUpdateReqDto) {
         authorService.authorUpdate(id, authorUpdateReqDto);
         return "redirect:/author/detail/" + id;
     }
+
+
 
 //    회원 삭제
     @GetMapping("/delete/{id}")

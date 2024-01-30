@@ -9,25 +9,26 @@ import com.encore.board.author.dto.AuthorSaveReqDto;
 import com.encore.board.author.repository.AuthorRepository;
 import com.encore.board.post.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
 public class AuthorService {
     private final AuthorRepository authorRepository;
     private final PostRepository postRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public AuthorService(AuthorRepository authorRepository, PostRepository postRepository) {
+    public AuthorService(AuthorRepository authorRepository, PostRepository postRepository, PasswordEncoder passwordEncoder) {
         this.authorRepository = authorRepository;
         this.postRepository = postRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public void authorCreate(AuthorSaveReqDto authorSaveReqDto) throws IllegalArgumentException{
@@ -50,7 +51,8 @@ public class AuthorService {
         Author author = Author.builder()
                 .email(authorSaveReqDto.getEmail())
                 .name(authorSaveReqDto.getName())
-                .password(authorSaveReqDto.getPassword())
+                .password(passwordEncoder.encode(authorSaveReqDto.getPassword()))
+                .role(role)
                 .build();
 
 ////        cascade.persist 테스트
@@ -84,6 +86,11 @@ public class AuthorService {
     public Author findById(Long id) throws EntityNotFoundException{
         Author author = authorRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("author not found"));
+        return author;
+    }
+
+    public Author findByEmail(String email) {
+        Author author = authorRepository.findByEmail(email).orElseThrow(EntityNotFoundException::new);
         return author;
     }
 
