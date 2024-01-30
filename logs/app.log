@@ -1359,3 +1359,195 @@ Caused by: javax.persistence.EntityNotFoundException: null
 2024-01-30 16:27 c.encore.board.common.AppLogService - end controller
 2024-01-30 16:27 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
 2024-01-30 16:27 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:34 com.encore.board.BoardApplication - Starting BoardApplication using Java 11.0.0.1 on LAPTOP-V81TVJ39 with PID 7748 (C:\Users\Playdata\Desktop\qoth\board\out\production\classes started by Playdata in C:\Users\Playdata\Desktop\qoth\board)
+2024-01-30 17:34 com.encore.board.BoardApplication - No active profile set, falling back to 1 default profile: "default"
+2024-01-30 17:34 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-30 17:34 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-30 17:34 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 216 ms. Found 2 JPA repository interfaces.
+2024-01-30 17:34 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-30 17:34 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-01-30 17:34 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.encore.board.author.repository.AuthorRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-01-30 17:34 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.encore.board.post.repository.PostRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-01-30 17:34 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2024-01-30 17:34 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-01-30 17:34 o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-01-30 17:34 o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-01-30 17:34 o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.74]
+2024-01-30 17:34 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-01-30 17:34 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3072 ms
+2024-01-30 17:34 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-30 17:34 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2024-01-30 17:34 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-01-30 17:34 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-01-30 17:34 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-01-30 17:34 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2024-01-30 17:34 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-01-30 17:34 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-30 17:34 o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@313a3af8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@19240b9, org.springframework.security.web.context.SecurityContextPersistenceFilter@66ab3716, org.springframework.security.web.header.HeaderWriterFilter@5fdcc63f, org.springframework.security.web.authentication.logout.LogoutFilter@4a5eb613, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@569b3009, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@24347d8b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@530ee11a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5471342, org.springframework.security.web.session.SessionManagementFilter@70a8654, org.springframework.security.web.access.ExceptionTranslationFilter@4c90fc3b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@281d3ce7]
+2024-01-30 17:34 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-30 17:34 o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-01-30 17:34 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-01-30 17:34 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2024-01-30 17:34 com.encore.board.BoardApplication - Started BoardApplication in 8.761 seconds (JVM running for 9.515)
+2024-01-30 17:35 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-01-30 17:35 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-01-30 17:35 o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-01-30 17:35 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:35 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:35 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:35 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:35 c.encore.board.common.AppLogService - user request info{"Method Name":"authorLogin","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:35 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:35 c.encore.board.common.AppLogService - user request info{"Method Name":"authorLogin","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:35 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:35 c.encore.board.common.AppLogService - user request info{"Method Name":"authorLogin","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:35 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:35 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:35 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:35 c.encore.board.common.AppLogService - user request info{"Method Name":"error","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:35 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:37 c.encore.board.common.AppLogService - user request info{"Method Name":"authorLogin","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:37 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:38 c.encore.board.common.AppLogService - user request info{"Method Name":"createScreen","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:38 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:38 c.encore.board.common.AppLogService - user request info{"Method Name":"postList","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:38 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:38 c.encore.board.common.AppLogService - user request info{"Method Name":"postList","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:38 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:38 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-01-30 17:38 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-01-30 17:38 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-01-30 17:38 com.encore.board.BoardApplication - Starting BoardApplication using Java 11.0.0.1 on LAPTOP-V81TVJ39 with PID 15100 (C:\Users\Playdata\Desktop\qoth\board\out\production\classes started by Playdata in C:\Users\Playdata\Desktop\qoth\board)
+2024-01-30 17:38 com.encore.board.BoardApplication - No active profile set, falling back to 1 default profile: "default"
+2024-01-30 17:38 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-30 17:38 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-30 17:38 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 153 ms. Found 2 JPA repository interfaces.
+2024-01-30 17:38 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-30 17:38 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-01-30 17:38 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.encore.board.author.repository.AuthorRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-01-30 17:38 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.encore.board.post.repository.PostRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-01-30 17:38 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2024-01-30 17:38 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-01-30 17:38 o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-01-30 17:38 o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-01-30 17:38 o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.74]
+2024-01-30 17:38 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-01-30 17:38 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2498 ms
+2024-01-30 17:38 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-30 17:38 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2024-01-30 17:38 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-01-30 17:38 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-01-30 17:38 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-01-30 17:38 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2024-01-30 17:38 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-01-30 17:38 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-30 17:38 o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4e9d1119, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d1907fb, org.springframework.security.web.context.SecurityContextPersistenceFilter@24347d8b, org.springframework.security.web.header.HeaderWriterFilter@70a8654, org.springframework.security.web.authentication.logout.LogoutFilter@2bfe4df9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4ad57db1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54d116d5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@13e6ab86, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6079d219, org.springframework.security.web.session.SessionManagementFilter@623c9988, org.springframework.security.web.access.ExceptionTranslationFilter@669b8190, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4615bc00]
+2024-01-30 17:38 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-30 17:38 o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-01-30 17:38 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-01-30 17:38 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2024-01-30 17:38 com.encore.board.BoardApplication - Started BoardApplication in 7.646 seconds (JVM running for 8.234)
+2024-01-30 17:38 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-01-30 17:38 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-01-30 17:38 o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-01-30 17:38 c.encore.board.common.AppLogService - user request info{"Method Name":"postList","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:38 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:38 c.encore.board.common.AppLogService - user request info{"Method Name":"postList","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:38 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:38 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:38 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:38 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:38 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:38 c.encore.board.common.AppLogService - user request info{"Method Name":"postList","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:38 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:38 c.encore.board.common.AppLogService - user request info{"Method Name":"postList","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:38 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:38 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:38 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:38 c.encore.board.common.AppLogService - user request info{"Method Name":"postList","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:38 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:38 c.encore.board.common.AppLogService - user request info{"Method Name":"authorLogin","CRUD Name":"GET","user inputs":{"logout":[""]}}
+2024-01-30 17:38 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:38 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:38 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:39 c.encore.board.common.AppLogService - user request info{"Method Name":"authorLogin","CRUD Name":"GET","user inputs":{"logout":[""]}}
+2024-01-30 17:39 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:39 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:39 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:39 c.encore.board.common.AppLogService - user request info{"Method Name":"authorLogin","CRUD Name":"GET","user inputs":{"logout":[""]}}
+2024-01-30 17:39 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:39 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:39 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:40 c.encore.board.common.AppLogService - user request info{"Method Name":"authorLogin","CRUD Name":"GET","user inputs":{"logout":[""]}}
+2024-01-30 17:40 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:40 c.encore.board.common.AppLogService - user request info{"Method Name":"authorLogin","CRUD Name":"GET","user inputs":{"error":[""]}}
+2024-01-30 17:40 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:40 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:40 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:40 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:40 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:40 c.encore.board.common.AppLogService - user request info{"Method Name":"authorList","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:40 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:41 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-01-30 17:41 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-01-30 17:41 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-01-30 17:41 com.encore.board.BoardApplication - Starting BoardApplication using Java 11.0.0.1 on LAPTOP-V81TVJ39 with PID 15148 (C:\Users\Playdata\Desktop\qoth\board\out\production\classes started by Playdata in C:\Users\Playdata\Desktop\qoth\board)
+2024-01-30 17:41 com.encore.board.BoardApplication - No active profile set, falling back to 1 default profile: "default"
+2024-01-30 17:41 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-30 17:41 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-30 17:41 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 159 ms. Found 2 JPA repository interfaces.
+2024-01-30 17:41 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-30 17:41 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-01-30 17:41 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.encore.board.author.repository.AuthorRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-01-30 17:41 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.encore.board.post.repository.PostRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-01-30 17:41 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2024-01-30 17:41 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-01-30 17:41 o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-01-30 17:41 o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-01-30 17:41 o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.74]
+2024-01-30 17:41 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-01-30 17:41 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2578 ms
+2024-01-30 17:41 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-30 17:41 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2024-01-30 17:41 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-01-30 17:41 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-01-30 17:41 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-01-30 17:41 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2024-01-30 17:41 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-01-30 17:41 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-30 17:41 o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@57eb2555, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@490f2fad, org.springframework.security.web.context.SecurityContextPersistenceFilter@36618b3b, org.springframework.security.web.header.HeaderWriterFilter@66297b63, org.springframework.security.web.authentication.logout.LogoutFilter@3ede428e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7053a864, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2cc82c83, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1b9cfc19, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3ed3e66d, org.springframework.security.web.session.SessionManagementFilter@3d3c14c3, org.springframework.security.web.access.ExceptionTranslationFilter@37289e90, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5fc42998]
+2024-01-30 17:41 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-30 17:41 o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-01-30 17:41 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-01-30 17:41 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2024-01-30 17:41 com.encore.board.BoardApplication - Started BoardApplication in 8.938 seconds (JVM running for 9.48)
+2024-01-30 17:41 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-01-30 17:41 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-01-30 17:41 o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-01-30 17:41 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:41 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:41 c.encore.board.common.AppLogService - user request info{"Method Name":"postList","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:41 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:41 c.encore.board.common.AppLogService - user request info{"Method Name":"authorList","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:41 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:41 c.encore.board.common.AppLogService - user request info{"Method Name":"authorDetail","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:41 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:41 c.encore.board.common.AppLogService - user request info{"Method Name":"authorList","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:41 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:44 c.encore.board.common.AppLogService - user request info{"Method Name":"authorLogin","CRUD Name":"GET","user inputs":{"logout":[""]}}
+2024-01-30 17:44 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:44 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:44 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:45 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:45 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:45 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:45 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:45 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:45 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:45 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:45 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:47 c.encore.board.common.AppLogService - user request info{"Method Name":"home","CRUD Name":"GET","user inputs":{}}
+2024-01-30 17:47 c.encore.board.common.AppLogService - end controller
+2024-01-30 17:53 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-01-30 17:53 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-01-30 17:53 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -1,4 +1,10 @@
 spring:
+#  세션 스토리지 -> 레디스 사용
+  session:
+    storage-type: redis
+  redis:
+    host: localhost
+    port: 6379
 #  임시계정 / 임시비밀번호 설정
   security:
     user:
